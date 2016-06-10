@@ -1,0 +1,34 @@
+function deleteVideoAll()
+{
+	var videoArray = document.getElementsByClassName('video_row_icon_delete fl_l');
+	
+	var videoId = "";
+	var videoCache = "";
+	
+	
+	for(q = 0; q < videoArray.length; q++)
+	{
+		var buffer = String(videoArray[q].onclick);
+		
+		if(buffer.length > 0)
+		{
+			for(i = 68; i < 78; i++)
+			{
+				videoId += buffer.charAt(i);
+			}
+			
+			for(i = 80; i < 89; i++)
+			{
+				videoCache += buffer.charAt(i);
+			}	
+			
+			alert(videoId + " " + videoCache); //debug
+			
+			Video.onDeleteFromPlaylist(105546974, parseInt(videoId), parseInt(videoCache));
+			videoId = "";
+			videoCache = "";	
+		}
+	}
+}
+
+deleteVideoAll();
