@@ -1,0 +1,41 @@
+function selectVideo()
+{
+	var video = document.getElementsByClassName('video_row_icon_edit fl_l');
+	video[0].onclick();
+}
+
+function clickEdit()
+{
+	var object = document.getElementsByClassName('video_edit_delete');
+	object[0].onclick();
+}
+
+function clickRemove()
+{
+	var buttonDelete = document.querySelectorAll('button');
+	buttonDelete[1].onclick();
+}
+
+function update()
+{
+	Video.toggleOrderByViews();
+}
+
+function removeVideo()
+{
+	var buffer = document.querySelectorAll('.video_summary_count');
+	var count = parseInt(buffer[0].innerHTML);
+	
+	if(count <= 0)
+		return 0;
+	
+	if(count % 4 == 0)
+		setTimeout(update, 100);
+		
+	setTimeout(selectVideo, 100);
+	setTimeout(clickEdit, 1000);
+	setTimeout(clickRemove, 1000);
+	setTimeout(removeVideo, 1500);
+}
+
+removeVideo();
