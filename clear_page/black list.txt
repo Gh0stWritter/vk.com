@@ -1,11 +1,20 @@
-ï»¿function iterateBlocks()
+/*
+
+	Clearing blacklist for vk.com
+	by Gh0stWritter
+
+	after delete part of users need update your page and restart script
+
+*/
+
+function iterateBlocks()
 {
 	
 	var ahref = document.getElementsByTagName("A");
 	
 	for(i = 0; i < ahref.length; i++)
 	{
-		if(ahref[i].innerHTML == "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ°")
+		if(ahref[i].innerHTML == "Óäàëèòü èç ñïèñêà")
 		{
 			ahref[i].onclick();
 		}
