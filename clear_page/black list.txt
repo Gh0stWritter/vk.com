@@ -1,43 +1,15 @@
-﻿/*
-
-	Clearing blacklist for vk.com
-	by Gh0stWritter
-*/
-
-
-vat time = 0;
-
-function iterateBlocks()
+﻿function iterateBlocks()
 {
 	
 	var ahref = document.getElementsByTagName("A");
-	var userId = "";
-	var userCache = "";
 	
-	for(q = 0; q < ahref.length; q++)
+	for(i = 0; i < ahref.length; i++)
 	{
-		var buffer = String(ahref[q].onclick);
-		
-		if(buffer.length > 0 && buffer.indexOf("Settings.delFromBl") >= 0)
+		if(ahref[i].innerHTML == "Удалить из списка")
 		{
-			for(i = 47; i < 56; i++)
-			{
-				userId += buffer.charAt(i);
-			}
-				
-			for(i = 58; i < 76; i++)		
-			{
-				userCache += buffer.charAt(i);
-			}
-			
-			//alert(userId + " " + userCache); debug
-			
-			//Settings.delFromBl(parseInt(userId), userCache, this);
-			userId = "";
-			userCache = "";	
+			ahref[i].onclick();
 		}
 	}
 }
 
 iterateBlocks();
-
